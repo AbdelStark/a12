@@ -1,19 +1,23 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { remark } from "remark";
-import html from "remark-html";
-import slug from "remark-slug";
-import gfm from "remark-gfm";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkGfm from "remark-gfm";
+import remarkRehype from "remark-rehype";
+import rehypeSlug from "rehype-slug";
+import rehypeStringify from "rehype-stringify";
 
 const SOURCE_FILE = "README.md";
 
 export async function getManifestoHtml() {
   const sourcePath = path.join(process.cwd(), SOURCE_FILE);
   const markdown = await fs.readFile(sourcePath, "utf8");
-  const processed = await remark()
-    .use(gfm)
-    .use(slug)
-    .use(html, { sanitize: false })
+  const processed = await unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeSlug)
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .process(markdown);
   return processed.toString();
 }
