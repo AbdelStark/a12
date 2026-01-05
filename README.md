@@ -88,13 +88,13 @@ constraints:
 - Never assume the agent “remembers.” Always inject relevant context explicitly.
 
 ```
-┌─────────────────────────────────────┐
-│  WORKING MEMORY (Context Window)   │  ← Hot: Current tokens
-├─────────────────────────────────────┤
-│  SESSION MEMORY (Conversation)     │  ← Warm: Summarized history
-├─────────────────────────────────────┤
-│  LONG-TERM MEMORY (Vector DB/KG)   │  ← Cold: Semantic retrieval
-└─────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│  WORKING MEMORY (Context Window)     ← Hot: Current tokens      │
+├─────────────────────────────────────────────────────────────────┤
+│  SESSION MEMORY (Conversation)       ← Warm: Summarized history │
+├─────────────────────────────────────────────────────────────────┤
+│  LONG-TERM MEMORY (Vector DB/KG)     ← Cold: Semantic retrieval │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 -----
@@ -219,19 +219,15 @@ returns:
 - Log all actions with attribution: *which agent*, *what context*, *who approved*.
 
 ```
-┌─────────────────────────────────────────────┐
-│  TIER 1: AUTONOMOUS                         │
-│  "Send calendar reminder"                   │
-├─────────────────────────────────────────────┤
-│  TIER 2: NOTIFY                             │
-│  "Update CRM record"                        │
-├─────────────────────────────────────────────┤
-│  TIER 3: APPROVE                            │
-│  "Send contract to client"                  │
-├─────────────────────────────────────────────┤
-│  TIER 4: FORBIDDEN                          │
-│  "Delete production database"               │
-└─────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│  TIER 1: AUTONOMOUS           │  “Send calendar reminder”        │
+├──────────────────────────────────────────────────────────────────┤
+│  TIER 2: NOTIFY               │  “Update CRM record”             │
+├──────────────────────────────────────────────────────────────────┤
+│  TIER 3: APPROVE              │  “Send contract to client”       │
+├──────────────────────────────────────────────────────────────────┤
+│  TIER 4: FORBIDDEN            │  “Delete production database”    │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
 -----
@@ -463,22 +459,22 @@ Build accordingly.
 ## Quick Reference Card
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                      THE AGENTIC TWELVE                         │
-├─────────────────────────────────────────────────────────────────┤
-│  I.   Intent Over Implementation      │  Declare what, not how │
-│  II.  Bounded Context Windows         │  Memory is a budget    │
-│  III. Probabilistic Determinism       │  Embrace uncertainty   │
-│  IV.  Radical Observability           │  Trace every decision  │
-│  V.   Tool Abstraction                │  Self-describing caps  │
-│  VI.  Human Sovereignty               │  Humans dispose        │
-│  VII. Sandbox-First Execution         │  Never trust agents    │
-│  VIII.Graceful Degradation            │  Fail elegantly        │
-│  IX.  Feedback Loops as Infra         │  Learning is a feature │
-│  X.   Versioned Behavior              │  Prompts are code      │
-│  XI.  Agent Interoperability          │  Common protocols      │
-│  XII. Idempotent Orchestration        │  Run twice, same result│
-└─────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│                           THE AGENTIC TWELVE                     │
+├──────────────────────────────────────────────────────────────────┤
+│  I.   Intent Over Implementation       │  Declare what, not how  │
+│  II.  Bounded Context Windows          │  Memory is a budget     │
+│  III. Probabilistic Determinism        │  Embrace uncertainty    │
+│  IV.  Radical Observability            │  Trace every decision   │
+│  V.   Tool Abstraction                 │  Self-describing caps   │
+│  VI.  Human Sovereignty                │  Humans dispose         │
+│  VII. Sandbox-First Execution          │  Never trust agents     │
+│  VIII. Graceful Degradation            │  Fail elegantly         │
+│  IX.  Feedback Loops as Infra          │  Learning is a feature  │
+│  X.   Versioned Behavior               │  Prompts are code       │
+│  XI.  Agent Interoperability           │  Common protocols       │
+│  XII. Idempotent Orchestration         │  Run twice, same result │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
 -----
